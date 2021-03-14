@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Apod } from "./components/Apod";
+import NasaPhoto from "./components/NasaPhoto";
+import NavBar from "./components/NavBar";
+import EarthEvents from "./components/EarthEvents";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+
+      <Route path="/" exact component={Apod} />
+      <Route path="/nasaphoto">
+        <NasaPhoto />
+      </Route>
+      <Route path="/earthEvents">
+        <EarthEvents />
+      </Route>
+    </Router>
   );
 }
 
